@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Tabs from './Tabs/Tabs';
+import TabTwo from './Tabs/TabTwo.js';
+import TabOne from './Tabs/TabOne.js';
+import TabThree from './Tabs/TabThree.js';
 
 function App() {
+
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Tabs setAciveTab={setActiveTab}/>
+      {activeTab === 0 && <TabOne/>}
+      {activeTab === 1 && <TabTwo/>}
+      {activeTab === 2 && <TabThree/>}
+      
     </div>
   );
 }
